@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalariesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DemandeCreations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Motif" Type="nvarchar(max)" />
+    <Property Name="NomBoite" Type="nvarchar(max)" />
+    <Property Name="ServiceAdminId" Type="int" Nullable="false" />
+    <Property Name="NomDemandeur" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Demandes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DemandeChangement" Type="nvarchar(max)" />
+    <Property Name="AncienResId" Type="int" Nullable="false" />
+    <Property Name="NouveauResId" Type="int" Nullable="false" />
+    <Property Name="ServiceAdminId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Salaries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" />
+    <Property Name="Prenom" Type="nvarchar(max)" />
+    <Property Name="TypeContrat" Type="nvarchar(max)" />
+    <Property Name="DateNaissance" Type="datetime" Nullable="false" />
+    <Property Name="LieuNaissance" Type="nvarchar(max)" />
+    <Property Name="PhotoProfil" Type="nvarchar(max)" />
+    <Property Name="Adresse" Type="nvarchar(max)" />
+    <Property Name="AdresseMail" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ServiceAdmins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomServiceAdmin" Type="nvarchar(max)" />
+    <Property Name="ChefService" Type="nvarchar(max)" />
+    <Property Name="Mail" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_DemandeCreations_dbo_ServiceAdmins_ServiceAdminId">
+    <End Role="ServiceAdmins" Type="Self.ServiceAdmins" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DemandeCreations" Type="Self.DemandeCreations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceAdmins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DemandeCreations">
+        <PropertyRef Name="ServiceAdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Demandes_dbo_Salaries_AncienResId">
+    <End Role="Salaries" Type="Self.Salaries" Multiplicity="1" />
+    <End Role="Demandes" Type="Self.Demandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salaries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Demandes">
+        <PropertyRef Name="AncienResId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Demandes_dbo_Salaries_NouveauResId">
+    <End Role="Salaries" Type="Self.Salaries" Multiplicity="1" />
+    <End Role="Demandes" Type="Self.Demandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salaries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Demandes">
+        <PropertyRef Name="NouveauResId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Demandes_dbo_ServiceAdmins_ServiceAdminId">
+    <End Role="ServiceAdmins" Type="Self.ServiceAdmins" Multiplicity="1" />
+    <End Role="Demandes" Type="Self.Demandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceAdmins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Demandes">
+        <PropertyRef Name="ServiceAdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalariesDBModelStoreContainer">
+    <EntitySet Name="DemandeCreations" EntityType="Self.DemandeCreations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Demandes" EntityType="Self.Demandes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salaries" EntityType="Self.Salaries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceAdmins" EntityType="Self.ServiceAdmins" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_DemandeCreations_dbo_ServiceAdmins_ServiceAdminId" Association="Self.FK_dbo_DemandeCreations_dbo_ServiceAdmins_ServiceAdminId">
+      <End Role="ServiceAdmins" EntitySet="ServiceAdmins" />
+      <End Role="DemandeCreations" EntitySet="DemandeCreations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Demandes_dbo_Salaries_AncienResId" Association="Self.FK_dbo_Demandes_dbo_Salaries_AncienResId">
+      <End Role="Salaries" EntitySet="Salaries" />
+      <End Role="Demandes" EntitySet="Demandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Demandes_dbo_Salaries_NouveauResId" Association="Self.FK_dbo_Demandes_dbo_Salaries_NouveauResId">
+      <End Role="Salaries" EntitySet="Salaries" />
+      <End Role="Demandes" EntitySet="Demandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Demandes_dbo_ServiceAdmins_ServiceAdminId" Association="Self.FK_dbo_Demandes_dbo_ServiceAdmins_ServiceAdminId">
+      <End Role="ServiceAdmins" EntitySet="ServiceAdmins" />
+      <End Role="Demandes" EntitySet="Demandes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

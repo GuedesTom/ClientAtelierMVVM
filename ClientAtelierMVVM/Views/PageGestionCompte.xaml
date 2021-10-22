@@ -1,0 +1,19 @@
+﻿<Page x:Class="ClientAtelierMVVM.Views.PageGestionCompte"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClientAtelierMVVM.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageGestionCompte">
+
+    <Grid Background="#FF3E1E1E">
+        <TextBox x:Name="tbxNom" HorizontalAlignment="Left" Height="23" Margin="417,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbxPasse" HorizontalAlignment="Left" Height="23" Margin="417,161,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nom Compte" HorizontalAlignment="Left" Margin="317,133,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label Content="Mot de Passe" HorizontalAlignment="Left" Margin="318,161,0,0" VerticalAlignment="Top" Height="23"/>
+        <Button Content="Enregistrer" HorizontalAlignment="Left" Margin="431,225,0,0" VerticalAlignment="Top" Width="75" Click="Enregistrer_Click"/>
+
+    </Grid>
+</Page>

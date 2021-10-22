@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d63e9be0fa54498284ad10245268083d" Name="Diagram1" ZoomLevel="400">
+        <EntityTypeShape EntityType="SalariesDBModel.DemandeCreation" Width="1.5" PointX="8.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalariesDBModel.Demande" Width="1.5" PointX="8.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalariesDBModel.Salary" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalariesDBModel.ServiceAdmin" Width="1.5" PointX="5" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="SalariesDBModel.FK_dbo_DemandeCreations_dbo_ServiceAdmins_ServiceAdminId" ManuallyRouted="false" />
+        <AssociationConnector Association="SalariesDBModel.FK_dbo_Demandes_dbo_Salaries_AncienResId" ManuallyRouted="false" />
+        <AssociationConnector Association="SalariesDBModel.FK_dbo_Demandes_dbo_Salaries_NouveauResId" ManuallyRouted="false" />
+        <AssociationConnector Association="SalariesDBModel.FK_dbo_Demandes_dbo_ServiceAdmins_ServiceAdminId" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.5" PointY="5.375" />
+          <ConnectorPoint PointX="6.5" PointY="5.1835416666666667" />
+          <ConnectorPoint PointX="6.6458333333333339" PointY="5.1835416666666667" />
+          <ConnectorPoint PointX="6.6458333333333339" PointY="5.25125" />
+          <ConnectorPoint PointX="6.40625" PointY="5.25125" />
+          <ConnectorPoint PointX="6.78125" PointY="5" />
+          <ConnectorPoint PointX="6.78125" PointY="4.8750000000000018" />
+          <ConnectorPoint PointX="7.3125" PointY="4.8750000000000018" />
+          <ConnectorPoint PointX="7.3125" PointY="4.0571907552083335" />
+          <ConnectorPoint PointX="8.7083333333333339" PointY="4.0571907552083335" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="3.8059407552083333" />
+          <ConnectorPoint PointX="8.5" PointY="3.8059407552083333" />
+          <ConnectorPoint PointX="8.5" PointY="3.6821907552083335" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

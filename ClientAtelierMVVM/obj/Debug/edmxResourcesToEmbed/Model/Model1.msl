@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SalariesDBModelStoreContainer" CdmEntityContainer="SalariesDBEntities">
+    <EntitySetMapping Name="DemandeCreations">
+      <EntityTypeMapping TypeName="SalariesDBModel.DemandeCreation">
+        <MappingFragment StoreEntitySet="DemandeCreations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Motif" ColumnName="Motif" />
+          <ScalarProperty Name="NomBoite" ColumnName="NomBoite" />
+          <ScalarProperty Name="ServiceAdminId" ColumnName="ServiceAdminId" />
+          <ScalarProperty Name="NomDemandeur" ColumnName="NomDemandeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Demandes">
+      <EntityTypeMapping TypeName="SalariesDBModel.Demande">
+        <MappingFragment StoreEntitySet="Demandes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DemandeChangement" ColumnName="DemandeChangement" />
+          <ScalarProperty Name="AncienResId" ColumnName="AncienResId" />
+          <ScalarProperty Name="NouveauResId" ColumnName="NouveauResId" />
+          <ScalarProperty Name="ServiceAdminId" ColumnName="ServiceAdminId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salaries">
+      <EntityTypeMapping TypeName="SalariesDBModel.Salary">
+        <MappingFragment StoreEntitySet="Salaries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="TypeContrat" ColumnName="TypeContrat" />
+          <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+          <ScalarProperty Name="LieuNaissance" ColumnName="LieuNaissance" />
+          <ScalarProperty Name="PhotoProfil" ColumnName="PhotoProfil" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="AdresseMail" ColumnName="AdresseMail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceAdmins">
+      <EntityTypeMapping TypeName="SalariesDBModel.ServiceAdmin">
+        <MappingFragment StoreEntitySet="ServiceAdmins">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomServiceAdmin" ColumnName="NomServiceAdmin" />
+          <ScalarProperty Name="ChefService" ColumnName="ChefService" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
